@@ -11,6 +11,7 @@ directories=(
 ./iterm
 ./oh-my-zsh
 ./p10k
+./zsh
 ./vim
 ./nvm
 ./prefs
