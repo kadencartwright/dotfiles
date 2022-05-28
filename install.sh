@@ -7,9 +7,11 @@ function execute(){
 
 #all the dirs with an install.sh script
 directories=(
-# ./homebrew
+./homebrew
 ./iterm
-# ./p10k
+./oh-my-zsh
+./p10k
+./vim
 )
 for dir in "${directories[@]}"; do
     execute "${dir}/install.sh";
