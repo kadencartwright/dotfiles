@@ -7,8 +7,8 @@ function execute(){
 
 #all the dirs with an install.sh script
 directories=(
-./homebrew
-# ./iterm
+# ./homebrew
+./iterm
 # ./p10k
 )
 for dir in "${directories[@]}"; do
