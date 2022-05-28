@@ -12,6 +12,9 @@ directories=(
 ./oh-my-zsh
 ./p10k
 ./vim
+./nvm
+./prefs
+./rust
 )
 for dir in "${directories[@]}"; do
     execute "${dir}/install.sh";
