@@ -16,6 +16,7 @@ directories=(
 ./nvm
 ./prefs
 ./rust
+./tools
 )
 for dir in "${directories[@]}"; do
     execute "${dir}/install.sh";
