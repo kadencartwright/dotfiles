@@ -14,6 +14,8 @@ nmap <leader>ne :NERDTree<cr>
 :augroup END
 
 call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
