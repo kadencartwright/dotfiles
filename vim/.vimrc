@@ -6,7 +6,7 @@ endif
 let mapleader = ","
 nmap <leader>ne :NERDTree<cr>
 :set number
-
+:set rtp+=/usr/local/opt/fzf
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
