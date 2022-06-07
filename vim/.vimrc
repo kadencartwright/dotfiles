@@ -19,6 +19,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
+autocmd BufNewFile,BufRead *.json set ft=javascript
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 "Vim plugins
 call plug#begin()
@@ -30,9 +32,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
 Plug 'preservim/nerdtree'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
-Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production','for': ['javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
 colorscheme onedark
