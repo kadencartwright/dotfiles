@@ -14,6 +14,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 :set number
 :set rtp+=/usr/local/opt/fzf
 
+:set tabstop=2
+:set shiftwidth=2
+:set expandtab
+
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -27,6 +31,7 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
+Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
