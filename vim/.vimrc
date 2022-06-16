@@ -23,7 +23,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
-autocmd BufNewFile,BufRead *.json set ft=javascript
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 "Vim plugins
@@ -37,6 +36,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
 Plug 'preservim/nerdtree'
+Plug 'elzr/vim-json'
 Plug 'joshdick/onedark.vim'
 call plug#end()
 
