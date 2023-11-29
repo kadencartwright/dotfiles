@@ -17,19 +17,19 @@ function install_if_not_already(){
 }
 # add plugins to install here
 plugins=starship,zsh-autosuggestions,zsh-completions
-
 for plugin in $(echo $plugins | sed "s/,/ /g") 
 do
     install_if_not_already $plugin
 done
 # enable fish like autosuggestions and history search  if installed
-if test -d /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh; then
+if test -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh; then
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fi
 which -s brew &> /dev/null
 if [[ $? == 0 ]] ; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+export PATH="/home/k/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 # init starship prompt
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
