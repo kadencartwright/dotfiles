@@ -1,35 +1,32 @@
 base_directory = "."
-[[file_configs]]
+[[path_mappings]]
 repo_path= "nvim/"
 host_path = ".config/nvim/"
 related_program = "neovim"
 
-[[file_configs]]
+[[path_mappings]]
 repo_path= "alacritty/"
 host_path= ".config/alacritty/"
 
-[[file_configs]]
+[[path_mappings]]
 repo_path= "hyprland/"
 host_path = ".config/hypr/"
-[[file_configs]]
-repo_path= "i3"
-host_path = ".config/i3/"
-[[file_configs]]
+[[path_mappings]]
 repo_path= "waybar"
 host_path = ".config/waybar/"
-[[file_configs]]
+[[path_mappings]]
 repo_path= "sway"
 host_path = ".config/sway/"
 
-[[file_configs]]
+[[path_mappings]]
 repo_path= "zsh"
 host_path = ".config/zsh/"
-[[file_configs]]
-repo_path= "zsh"
+[[path_mappings]]
+repo_path= "zsh/.zshenv"
 host_path = ".zshenv"
-[[file_configs]]
+[[path_mappings]]
 repo_path= "fuzzel"
 host_path = ".config/fuzzel/"
-[[file_configs]]
+[[path_mappings]]
 repo_path= "starship/"
 host_path = ".config/starship/"

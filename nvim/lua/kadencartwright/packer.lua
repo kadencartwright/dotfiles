@@ -47,15 +47,4 @@ return require('packer').startup(function(use)
     use('towolf/vim-helm')
     use('windwp/nvim-ts-autotag')
     use('windwp/nvim-autopairs')
-    use('tpope/vim-dadbod')
-    use('kristijanhusak/vim-dadbod-ui')
-    use('mfussenegger/nvim-dap')
-    use('rcarriga/nvim-dap-ui')
-    use('theHamsta/nvim-dap-virtual-text')
-    use { "mxsdev/nvim-dap-vscode-js" }
-    use {
-        "microsoft/vscode-js-debug",
-        opt = true,
-        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-    }
 end)
