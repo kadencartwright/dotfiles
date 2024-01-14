@@ -30,3 +30,6 @@ host_path = ".config/fuzzel/"
 [[path_mappings]]
 repo_path= "starship/"
 host_path = ".config/starship/"
+[[path_mappings]]
+repo_path= "fontconfig/"
+host_path = ".config/fontconfig/"
