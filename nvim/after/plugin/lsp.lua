@@ -1,86 +1,100 @@
 local lsp = require("lsp-zero")
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  ensure_installed = {
+local servers = {
+    gopls = {},
+    rust_analyzer = {},
+    tsserver = {
+    },
+    html = { filetypes = { 'html', 'twig', 'hbs' } },
 
-	'tsserver',
-	'eslint',
-	'lua_ls',
-	'rust_analyzer',
-    'gopls',
-    'bashls'
-      },
-})
-lsp.preset("recommended")
+    lua_ls = {
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+            diagnostics = { globals = { 'vim' }, disable = { 'missing-fields' } }
+        },
+    },
+}
 
--- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
+local on_attach =
+    function(_, bufnr)
+        local opts = { buffer = bufnr, remap = false }
 
-lsp.configure("tsserver", {
-    settings = {
-        completions = {
-            completeFunctionCalls = true
-        }
-    }})
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
+        local function quickfix()
+            vim.lsp.buf.code_action({
+                filter = function(a) return a.isPreferred end,
+                apply = true
+            })
+        end
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+        vim.keymap.set('n', '<leader>qf', quickfix, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
-cmp.setup({
-	mapping = cmp_mappings
-})
-
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = 'E',
-		warn = 'W',
-		hint = 'H',
-		info = 'I'
-	}
-})
-
-lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
-
-    local function quickfix()
-        vim.lsp.buf.code_action({
-            filter = function(a) return a.isPreferred end,
-            apply = true
-        })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local mason_lspconfig = require 'mason-lspconfig'
+mason_lspconfig.setup_handlers {
+    function(server_name)
+        require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+            filetypes = (servers[server_name] or {}).filetypes,
+        }
+    end,
+}
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+}
 
-    vim.keymap.set('n', '<leader>qf', quickfix, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+require('luasnip.loaders.from_vscode').lazy_load()
+luasnip.config.setup {}
 
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-   	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-end)
-
-lsp.setup()
-vim.diagnostic.config({
-  virtual_text = {
-    -- source = "always",  -- Or "if_many"
-    prefix = '●', -- Could be '■', '▎', 'x'
-  },
-  severity_sort = true,
-  float = {
-    source = "always",  -- Or "if_many"
-  },
-})
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
+    mapping = cmp.mapping.preset.insert {
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    },
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'path' },
+    },
+}
