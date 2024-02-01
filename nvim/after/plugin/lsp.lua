@@ -2,6 +2,7 @@ local lsp = require("lsp-zero")
 local servers = {
     gopls = {},
     rust_analyzer = {},
+    powershell_es = {},
     tsserver = {
     },
     html = { filetypes = { 'html', 'twig', 'hbs' } },
