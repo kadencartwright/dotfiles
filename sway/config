@@ -2,8 +2,8 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $alt Mod1
+set $mod Mod1
+set $secondaryMod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -16,14 +16,12 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu fuzzel | xargs swaymsg exec --
 # remove window titles
-default_border pixel 2 
-default_floating_border pixel 1
-font "MesloLGS NF" 10
-titlebar_padding 1
-titlebar_border_thickness 0
-# TokyoNight theme
+default_border pixel 1 
+default_floating_border pixel 1 
+gaps inner 4 
+gaps outer 2
 # Property Name             Border  BG      Text    Indicator Child-border
-client.focused              #0a0b16 #2f343f #4477ff #4477ff   #4477ff
+client.focused              #0a0b16 #2f343f #d8dee8 #4477ff   #4477ff
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f   #2f343f
 client.unfocused            #2f343f #2f343f #d8dee8 #2f343f   #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f   #2f343f
@@ -167,7 +165,11 @@ exec swayidle -w \
     # Move focus to the parent container
     bindsym $mod+a focus parent
     # Lock the screen with windows+l key
-    bindsym $alt+l exec $lock_cmd 
+    bindsym $secondaryMod+l exec $lock_cmd 
+# brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 3%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+
 #
 # Scratchpad:
 #
@@ -217,5 +219,6 @@ include /etc/sway/config.d/*
 input * {
     repeat_rate 85 
     repeat_delay 200
+    natural_scroll enabled 
 }
 
