@@ -20,6 +20,7 @@ return {
     'towolf/vim-helm',
     'windwp/nvim-ts-autotag',
     'windwp/nvim-autopairs',
+    'https://git.sr.ht/~soywod/himalaya-vim',
     {
         -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',

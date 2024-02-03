@@ -16,8 +16,8 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu fuzzel | xargs swaymsg exec --
 # remove window titles
-default_border pixel 1 
-default_floating_border pixel 1 
+default_border pixel 3
+default_floating_border pixel 2
 gaps inner 4 
 gaps outer 2
 # Property Name             Border  BG      Text    Indicator Child-border

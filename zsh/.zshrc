@@ -1,4 +1,4 @@
-export PATH=/home/k/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$PATH
 export EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
 export HISTFILE=~/.zsh_history
@@ -39,8 +39,7 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
+# create a zkbd compatible hash; to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
 
 key[Home]="${terminfo[khome]}"
