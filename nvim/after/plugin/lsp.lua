@@ -1,8 +1,13 @@
-local lsp = require("lsp-zero")
 local servers = {
     gopls = {},
     rust_analyzer = {},
-    powershell_es = {},
+    powershell_es = {
+        filetypes = { 'ps1' },
+        bundle_path = '/opt/powershell-editor-services/',
+        shell = 'pwsh',
+        cmd =
+        "pwsh -NoLogo -NoProfile -Command \"/opt/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1 -BundledModulesPath /opt/powershell-editor-services  -FeatureFlags @() -AdditionalModules @() -HostName 'My Client' -HostProfileId 'myclient' -HostVersion 1.0.0 -LogLevel Normal\""
+    },
     tsserver = {
     },
     html = { filetypes = { 'html', 'twig', 'hbs' } },
