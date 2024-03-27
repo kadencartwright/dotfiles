@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: DejaVu Sans Book, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     opacity: 0.93;
 }
 
@@ -10,20 +10,13 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -35,7 +28,6 @@ window#waybar.chromium {
 }
 
 button {
-    /* Avoid rounded borders under each button name */
     border: 3px;
     border-radius: 6px;
 }
@@ -86,6 +78,10 @@ button {
     border-radius: 6px;
 }
 
+#clock{
+
+    background-color: unset;
+}
 #window,
 #workspaces {
     margin: 0;
@@ -93,12 +89,12 @@ button {
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 8px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+    margin-right: 8px;
 }
 
 

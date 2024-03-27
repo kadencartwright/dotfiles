@@ -1,9 +1,9 @@
 {
      "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
+    //"height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 8, // Gaps between modules (4px)
+    "spacing": 16, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces","sway/workspaces" ],
     "wlr/workspaces": {
@@ -18,8 +18,8 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
-    "modules-center": [],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "backlight", "keyboard-state", "battery", "battery#bat2",  "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -89,15 +89,14 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "icon-size": 21,
+        "spacing": 15
     },
     "clock": {
         // "timezone": "America/Chicago",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
         "format": "{:%I:%M %p}"
-        
     },
     "cpu": {
         "format": "{usage}% ",
@@ -122,10 +121,10 @@
     "battery": {
         "states": {
             // "good": 95,
-            "warning": 30,
+            "warning": 25,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% {icon} ",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
@@ -138,12 +137,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid}) ",
+        "format-ethernet": "{ipaddr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected",
+        "format-alt": "{ifname}: {ipaddr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -151,7 +150,7 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
