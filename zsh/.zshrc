@@ -29,11 +29,18 @@ which -s brew &> /dev/null
 if [[ $? == 0 ]] ; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
-export PATH="/home/k/.local/share/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
-# init starship prompt
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
+## fnm config
+which -s fnm &> /dev/null
+if [[ $? == 0 ]] ; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    eval "$(fnm env --use-on-cd)"
+fi
+which -s starship &> /dev/null
+if [[ $? == 0 ]] ; then
+    # init starship prompt
+    export STARSHIP_CONFIG=~/.config/starship/starship.toml
+    eval "$(starship init zsh)"
+fi
 
 autoload -Uz compinit
 compinit
@@ -86,10 +93,19 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
 # pnpm
-export PNPM_HOME="/home/k/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-alias sway="XDG_CURRENT_DESKTOP=sway sway"
+
+
+# cargo 
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+source "$HOME/.cargo/env"
