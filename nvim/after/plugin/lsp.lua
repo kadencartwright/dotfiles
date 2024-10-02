@@ -1,12 +1,14 @@
+local homedir = os.getenv('HOME')
 local servers = {
+
     gopls = {},
     rust_analyzer = {},
     powershell_es = {
         filetypes = { 'ps1' },
-        bundle_path = '/opt/powershell-editor-services/',
-        shell = 'pwsh',
+        --        bundle_path = '$HOME/.local/share/nvim/mason/packages/powershell-editor-services/',
+        --        shell = 'pwsh',
         cmd =
-        "pwsh -NoLogo -NoProfile -Command \"/opt/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1 -BundledModulesPath /opt/powershell-editor-services  -FeatureFlags @() -AdditionalModules @() -HostName 'My Client' -HostProfileId 'myclient' -HostVersion 1.0.0 -LogLevel Normal\""
+        { 'pwsh', '-NoLogo', '-NoProfile', '-Command', homedir..'/.local/share/nvim/mason/packages/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1', '-BundledModulesPath', homedir..'/.local/share/nvim/mason/packages/powershell-editor-services', '-FeatureFlags', '@()', '-AdditionalModules', '@()', '-HostName', '"My Client"', '-HostProfileId', "'myclient'", "-HostVersion 1.0.0", '-LogLevel', 'Normal' }
     },
     tsserver = {
     },
@@ -50,6 +52,7 @@ mason_lspconfig.setup_handlers {
             on_attach = on_attach,
             settings = servers[server_name],
             filetypes = (servers[server_name] or {}).filetypes,
+            cmd = (servers[server_name] or {}).cmd
         }
     end,
 }
