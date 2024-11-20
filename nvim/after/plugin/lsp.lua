@@ -4,9 +4,8 @@ local servers = {
     gopls = {},
     rust_analyzer = {},
     powershell_es = {
-        filetypes = { 'ps1' },
-        --        bundle_path = '$HOME/.local/share/nvim/mason/packages/powershell-editor-services/',
-        --        shell = 'pwsh',
+                bundle_path = homedir..'/.local/share/nvim/mason/packages/powershell-editor-services/',
+                shell = 'pwsh',
         cmd =
         { 'pwsh', '-NoLogo', '-NoProfile', '-Command', homedir..'/.local/share/nvim/mason/packages/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1', '-BundledModulesPath', homedir..'/.local/share/nvim/mason/packages/powershell-editor-services', '-FeatureFlags', '@()', '-AdditionalModules', '@()', '-HostName', '"My Client"', '-HostProfileId', "'myclient'", "-HostVersion 1.0.0", '-LogLevel', 'Normal' }
     },
