@@ -2,4 +2,8 @@
 state=$(cat ~/.config/google-chrome/Local\ State)
 profile=$(echo $state | jq  -r '.profile.info_cache[].name' | fuzzel -d)
 
-echo $state | jq  --arg name "$profile" '.profile.info_cache | map_values(select (.name==$name))|keys[]' | xargs -r google-chrome-stable --profile-directory
+profile_dir=$(echo $state | jq  -r --arg name "$profile" '.profile.info_cache | map_values(select (.name==$name))|keys[]')
+echo $profile_dir
+if [[ -n "${profile_dir}" ]]; then
+    google-chrome-stable --profile-directory="$profile_dir"
+fi
