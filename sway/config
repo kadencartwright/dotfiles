@@ -15,7 +15,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu fuzzel | xargs swaymsg exec --
 # remove window titles
-default_border pixel 3
+default_border pixel 2
 default_floating_border pixel 2
 gaps inner 0
 gaps outer 0
@@ -28,7 +28,7 @@ client.placeholder          #2f343f #2f343f #d8dee8 #2f343f   #2f343f
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
 # Example configuration:
 #
@@ -38,24 +38,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 output DP-1 scale 1.75 
 output DP-2 scale 1.75 
-set $lock_cmd swaylock \
-    --effect-blur 9x5 \
-    --clock \
-    --screenshots \
-    --indicator-radius 100 \
-	--indicator-thickness 7 \
-	--effect-vignette 0.5:0.5 \
-	--ring-color 56b6c2 \
-	--key-hl-color 828791 \
-    --inside-color 1e2127 \
-    --layout-bg-color 1e2127 \
-    --text-color e6efff \
-    --ring-clear-color 56b6c2 \
-    --inside-clear-color 1e2127 \
-	--separator-color e6efff \
-	--grace 0 \
-	--fade-in 0.2
-
+set $lock_cmd swaylock
 
 ### Idle configuration
 exec swayidle -w \
@@ -221,8 +204,8 @@ bar {
 
 include /etc/sway/config.d/*
 input * {
-    repeat_rate 85 
-    repeat_delay 200
+    repeat_rate 90 
+    repeat_delay 180
     natural_scroll enabled 
 }
 

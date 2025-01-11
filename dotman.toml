@@ -17,6 +17,9 @@ host_path = ".config/waybar/"
 [[path_mappings]]
 repo_path= "sway"
 host_path = ".config/sway/"
+[[path_mappings]]
+repo_path= "swaylock"
+host_path = ".config/swaylock/"
 
 [[path_mappings]]
 repo_path= "zsh"

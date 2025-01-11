@@ -99,7 +99,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
 
+include $HOME/export-esp.sh 
 
 # cargo 
 export PNPM_HOME="$HOME/.local/share/pnpm"
