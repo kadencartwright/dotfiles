@@ -216,7 +216,7 @@ bar {
 }
 
 include /etc/sway/config.d/*
-input "SNSL0027:00 2C2F:0027 Touchpad" {
+input "11311:39:SNSL0027:00_2C2F:0027_Touchpad" {
     natural_scroll enabled 
 }
 input * {
