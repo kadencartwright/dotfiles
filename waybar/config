@@ -5,19 +5,19 @@
     // "width": 1280, // Waybar width
     "spacing": 16, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces","sway/workspaces" ],
-    "wlr/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
-    },
+    "modules-left": ["sway/workspaces" ],
+    //"wlr/workspaces": {
+    //    "format": "{icon}",
+    //    "on-click": "activate",
+    //    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    //    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    //},
+    //"hyprland/workspaces": {
+    //    "format": "{icon}",
+    //    "on-click": "activate",
+    //    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    //    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    //},
     "sway/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
@@ -26,22 +26,6 @@
     },
     "modules-center": ["clock"],
     "modules-right": ["mpd","idle_inhibitor", "pulseaudio", "network", "backlight", "keyboard-state", "battery", "battery#bat2",  "tray"],
-    // Modules configuratioj
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,

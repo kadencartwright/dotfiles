@@ -46,6 +46,9 @@ button {
 #workspaces button.active {
     background-color: #64727D;
 }
+#workspaces button.focused {
+    background-color: #64727D;
+}
 
 #workspaces button.urgent {
     background-color: #eb4d4b;

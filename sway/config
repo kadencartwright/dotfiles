@@ -28,7 +28,7 @@ client.placeholder          #2f343f #2f343f #d8dee8 #2f343f   #2f343f
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg #1e1e2e solid_color 
 #
 # Example configuration:
 #
@@ -45,6 +45,10 @@ exec swayidle -w \
     timeout 600 $lock_cmd \
     timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep $lock_cmd
+
+
+exec_always nm-applet --indicator
+exec_always blueman-applet
 ### Key bindings
 #
 # Basics:
@@ -57,6 +61,10 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    
+    bindsym $mod+Shift+a exec chrome-picker.sh
+    bindgesture swipe:right workspace prev
+    bindgesture swipe:left workspace next
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -70,7 +78,9 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+t exec flameshot gui 
+    #bindsym $mod+t exec flameshot gui 
+    bindsym $mod+t exec grimshot copy area 
+
 #
 # Moving around:
 #
@@ -152,6 +162,9 @@ exec swayidle -w \
 # brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 3%-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 #
 # Scratchpad:
@@ -203,9 +216,11 @@ bar {
 }
 
 include /etc/sway/config.d/*
+input "SNSL0027:00 2C2F:0027 Touchpad" {
+    natural_scroll enabled 
+}
 input * {
     repeat_rate 90 
     repeat_delay 180
-    natural_scroll enabled 
 }
 
