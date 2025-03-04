@@ -15,10 +15,10 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu fuzzel | xargs swaymsg exec --
 # remove window titles
-default_border pixel 2
-default_floating_border pixel 2
-gaps inner 0
-gaps outer 0
+default_border pixel 1
+default_floating_border pixel 1
+gaps inner 4
+gaps outer 4
 # Property Name             Border  BG      Text    Indicator Child-border
 client.focused              #0a0b16 #2f343f #d8dee8 #4477ff   #4477ff
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f   #2f343f
@@ -35,6 +35,8 @@ output * bg #1e1e2e solid_color
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+seat seat0 xcursor_theme Adwaita 22 
+
 
 output DP-1 scale 1.75 
 output DP-2 scale 1.75 
@@ -49,6 +51,7 @@ exec swayidle -w \
 
 exec_always nm-applet --indicator
 exec_always blueman-applet
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ### Key bindings
 #
 # Basics:
@@ -160,7 +163,7 @@ exec_always blueman-applet
     # Lock the screen with windows+l key
     bindsym $secondaryMod+l exec $lock_cmd 
 # brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 3%-
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 4%-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -206,6 +209,7 @@ bindsym $mod+r mode "resize"
 # floating config:
 #
 for_window [class="zoom"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
 
 #
 # Status Bar:

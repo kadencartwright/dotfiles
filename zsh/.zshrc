@@ -113,4 +113,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 source "$HOME/.cargo/env"
-alias todo='nvim "$HOME/Documents/todos/2025/jan14.md"'
+alias todo='nvim "$HOME/Sync/docs/todos/2025/jan14.md"'
