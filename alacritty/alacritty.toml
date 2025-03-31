@@ -41,3 +41,13 @@ family = "MesloLGS NF"
 
 [window]
 decorations = "full"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
