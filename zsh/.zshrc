@@ -23,13 +23,10 @@ done
 if test -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh; then
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fi
-which -s brew &> /dev/null
-if [[ $? == 0 ]] ; then
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
 
 if test -f /opt/homebrew/bin/brew; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 ## fnm config
 which -s fnm &> /dev/null

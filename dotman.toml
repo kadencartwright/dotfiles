@@ -46,3 +46,6 @@ host_path = ".config/sketchybar/"
 [[path_mappings]]
 repo_path= "karabiner/"
 host_path = ".config/karabiner/"
+[[path_mappings]]
+repo_path= "aerospace-swipe/"
+host_path = ".config/aerospace-swipe/"
