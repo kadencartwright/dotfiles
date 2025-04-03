@@ -43,3 +43,6 @@ host_path = ".config/aerospace/"
 [[path_mappings]]
 repo_path= "sketchybar/"
 host_path = ".config/sketchybar/"
+[[path_mappings]]
+repo_path= "karabiner/"
+host_path = ".config/karabiner/"
