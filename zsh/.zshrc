@@ -28,6 +28,7 @@ fi
 which -s brew &> /dev/null
 if [[ $? == 0 ]] ; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 ## fnm config
 which -s fnm &> /dev/null
