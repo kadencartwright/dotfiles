@@ -36,3 +36,6 @@ host_path = ".config/starship/"
 [[path_mappings]]
 repo_path= "fontconfig/"
 host_path = ".config/fontconfig/"
+[[path_mappings]]
+repo_path= "aerospace/"
+host_path = ".config/aerospace/"
