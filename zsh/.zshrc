@@ -1,6 +1,4 @@
 export PATH=$HOME/bin:$HOME/go/bin:$PATH
-export EDITOR=$(which nvim)
-export VISUAL=$(which nvim)
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -118,3 +116,5 @@ esac
 # pnpm end
 source "$HOME/.cargo/env"
 alias todo='nvim "$HOME/Sync/docs/todos/2025/jan14.md"'
+export EDITOR=$(which nvim)
+export VISUAL=$(which nvim)
