@@ -39,3 +39,6 @@ host_path = ".config/fontconfig/"
 [[path_mappings]]
 repo_path= "aerospace/"
 host_path = ".config/aerospace/"
+[[path_mappings]]
+repo_path= "sketchybar/"
+host_path = ".config/sketchybar/"
