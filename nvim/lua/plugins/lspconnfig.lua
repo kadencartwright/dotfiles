@@ -1,4 +1,5 @@
 return {
+	{},
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -15,6 +16,8 @@ return {
 
 			-- Allows extra capabilities provided by nvim-cmp
 			"hrsh7th/cmp-nvim-lsp",
+
+			"b0o/schemastore.nvim",
 		},
 		config = function()
 			-- Brief aside: **What is LSP?**
@@ -224,6 +227,15 @@ return {
 				ts_ls = {},
 				--
 
+				jsonls = {
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas({
+								validate = { enable = true },
+							}),
+						},
+					},
+				},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
