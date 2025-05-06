@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(0,0,0, 0.0);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -29,7 +29,7 @@ window#waybar.chromium {
 
 button {
     border: 3px;
-    border-radius: 6px;
+    border-radius: 0;
 }
 
 
@@ -78,7 +78,6 @@ button {
     color: #ffffff;
     background-color: #64727D;
     border: 3px;
-    border-radius: 6px;
 }
 
 #clock{
@@ -144,6 +143,9 @@ label:focus {
     -gtk-icon-effect: dim;
 }
 
+#workspaces {
+    background-color: rgba(43, 48, 59, 0.0);
+}
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;

@@ -34,13 +34,14 @@ bright_foreground = "0xe6efff"
 foreground = "0xabb2bf"
 
 [font]
-size = 13.0
+size = 14.0
 
 [font.normal]
 family = "MesloLGS NF"
 
 [window]
 decorations = "full"
+opacity = 0.95
 
 [[keyboard.bindings]]
 action = "Copy"
