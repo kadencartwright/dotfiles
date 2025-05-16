@@ -2,12 +2,18 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: DejaVu Sans Book, Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
-    opacity: 0.93;
 }
+@define-color black #1e2127;
+@define-color blue #61afef;
+@define-color green #98c379;
+@define-color magenta #c678dd;
+@define-color red #e06c75;
+@define-color white #828791;
+@define-color bright-white #e6efff;
+@define-color yellow #d19a66;
 
 window#waybar {
     background-color: rgba(0,0,0, 0.0);
-    color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
     padding: 0;
@@ -19,24 +25,23 @@ window#waybar.hidden {
 }
 
 window#waybar.termite {
-    background-color: #3F3F3F;
+    background-color: @black;
 }
 
 window#waybar.chromium {
-    background-color: #000000;
+    background-color: @black;
     border: none;
 }
 
 button {
     border: 3px;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -55,7 +60,6 @@ button {
 }
 
 #mode {
-    background-color: #64727D;
 }
 
 #clock,
@@ -74,9 +78,8 @@ button {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 10px;
-    color: #ffffff;
-    background-color: #64727D;
+    padding: 0 2px;
+    color: @bright-white;
     border: 3px;
 }
 
@@ -98,17 +101,18 @@ button {
 .modules-right > widget:last-child > #workspaces {
     margin-right: 8px;
 }
+#workspaces {
+    background-color: rgba(43, 48, 59, 0.0);
+}
 
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @white;
+        color: @black;
     }
 }
 
@@ -136,23 +140,19 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
 }
 
 #tray > .passive {
     -gtk-icon-effect: dim;
 }
 
-#workspaces {
-    background-color: rgba(43, 48, 59, 0.0);
-}
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 #idle_inhibitor.activated {
@@ -161,24 +161,19 @@ label:focus {
 }
 
 #mpd {
-    background-color: #66cc99;
     color: #2a5c45;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
 }
 
 #mpd.paused {
-    background-color: #51a37a;
 }
 
 #language {
-    background: #00b093;
     color: #740864;
     padding: 0 5px;
     margin: 0 5px;
@@ -186,7 +181,6 @@ label:focus {
 }
 
 #keyboard-state {
-    background: #97e1ad;
     color: #000000;
     padding: 0 0px;
     margin: 0 5px;
@@ -198,13 +192,10 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad.empty {
-	background-color: transparent;
 }

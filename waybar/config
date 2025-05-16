@@ -34,10 +34,9 @@
     "modules-right": [
         "power-profiles-daemon",
         "mpd",
-        "idle_inhibitor",
         "pulseaudio",
-        "network",
         "backlight",
+        "network",
         "battery",
         "battery#bat2",
         "tray"
@@ -113,10 +112,9 @@
         "spacing": 15
     },
     "clock": {
-        // "timezone": "America/Chicago",
+        "timezone": "America/Chicago",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%I:%M %p}"
+        "format": "{:%m-%d      %I:%M}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -177,7 +175,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid}) ",
+        "format-wifi": "{essid} ",
         "format-ethernet": "{ipaddr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
