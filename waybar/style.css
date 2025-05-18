@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: DejaVu Sans Book, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Meslo LGS NF, DejaVu Sans Book, Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
 @define-color black #1e2127;
@@ -40,7 +40,7 @@ button {
 
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 2px 5px;
     background-color: transparent;
 }
 
