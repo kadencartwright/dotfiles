@@ -58,12 +58,13 @@ automatically-unhide-macos-hidden-apps = true
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+
 [gaps]
     inner.horizontal = 5
     inner.vertical =   5
     outer.left =       5
     outer.bottom =     5
-    outer.top =        5 
+    outer.top =        [{ monitor."Built-in Retina Display" = 5 }, 35] 
     outer.right =      5
 
 # 'main' binding mode declaration
@@ -181,3 +182,14 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+[workspace-to-monitor-force-assignment]
+    1 =  'main'        # You can specify multiple patterns
+    2 = ['secondary', 'main']        # You can specify multiple patterns.
+    3 = ['secondary', 'main']        # You can specify multiple patterns.
+    4 = ['secondary', 'main']        # You can specify multiple patterns.
+    5 = ['secondary', 'main']        # You can specify multiple patterns.
+    6 = ['secondary', 'main']        # You can specify multiple patterns.
+    7 = ['secondary', 'main']        # You can specify multiple patterns.
+    8 = ['secondary', 'main']        # You can specify multiple patterns.
+    9 = ['secondary', 'main']        # You can specify multiple patterns.
+    10 = ['secondary', 'main']        # You can specify multiple patterns.

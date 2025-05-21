@@ -160,7 +160,6 @@ return {
 							end,
 						})
 					end
-
 					-- The following code creates a keymap to toggle inlay hints in your
 					-- code, if the language server you are using supports them
 					--
@@ -234,7 +233,6 @@ return {
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				ts_ls = {},
 				--
-
 				jsonls = {
 					settings = {
 						json = {
@@ -243,6 +241,9 @@ return {
 							}),
 						},
 					},
+				},
+				eslint = {
+					settings = {},
 				},
 				lua_ls = {
 					-- cmd = { ... },
@@ -344,10 +345,10 @@ return {
 				-- python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-				typescript = { "prettierd", "prettier", stop_after_first = true },
-				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				javascript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "eslint", "prettierd", "prettier", stop_after_first = true },
+				typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "eslint", "prettierd", "prettier", stop_after_first = true },
 				css = { "prettierd", "prettier", stop_after_first = true },
 				html = { "prettierd", "prettier", stop_after_first = true },
 				json = { "prettierd", "prettier", stop_after_first = true },

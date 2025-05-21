@@ -3,6 +3,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 	event = "VimEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"ThePrimeagen/git-worktree.nvim",
 		{ -- If encountering errors, see telescope-fzf-native README for installation instructions
 			"nvim-telescope/telescope-fzf-native.nvim",
 
@@ -62,6 +63,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
+		pcall(require("telescope").load_extension, "git_worktree")
 		pcall(require("telescope").load_extension, "ui-select")
 
 		-- See `:help telescope.builtin`
