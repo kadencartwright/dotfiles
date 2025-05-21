@@ -49,3 +49,9 @@ host_path = ".config/karabiner/"
 [[path_mappings]]
 repo_path= "aerospace-swipe/"
 host_path = ".config/aerospace-swipe/"
+[[path_mappings]]
+repo_path= "electron/electron-flags.conf"
+host_path = ".config/electron-flags.conf"
+[[path_mappings]]
+repo_path= "kde/kdeglobals"
+host_path = ".config/kdeglobals"

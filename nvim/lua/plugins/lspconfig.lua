@@ -1,15 +1,4 @@
 return {
-
-	{
-		"seblyng/roslyn.nvim",
-		ft = "cs",
-		---@module 'roslyn.config'
-		---@type RoslynNvimConfig
-		opts = {
-			-- your configuration comes here; leave empty for default settings
-			-- NOTE: You must configure `cmd` in `config.cmd` unless you have installed via mason
-		},
-	},
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -242,7 +231,6 @@ return {
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				roslyn = {},
 				ts_ls = {},
 				--
 
