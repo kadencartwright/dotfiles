@@ -50,3 +50,4 @@ vim.opt.scrolloff = 10
 vim.opt.confirm = true
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
