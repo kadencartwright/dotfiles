@@ -36,6 +36,7 @@ window#waybar.chromium {
 button {
     border: 3px;
     border-radius: 5px;
+    color: @bright-white;
 }
 
 
@@ -129,6 +130,7 @@ label:focus {
     padding: 0 8px;
 }
 #power-profiles-daemon{
+    color: @bright-white;
     padding: 0 8px;
 }
 #network.disconnected {
