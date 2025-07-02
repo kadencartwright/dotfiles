@@ -1,5 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-add_newline = false 
+add_newline = false
 format = """[\uE0B6](fg:blue)[$directory](fg:black bg:blue)[\uE0B0](blue bg:green)$git_branch(fg:black bg:green)$git_status(#3A95C7 bg:#40A9E0)$time[\uE0B0](green bg:none) $all$character """
 
 [directory]
