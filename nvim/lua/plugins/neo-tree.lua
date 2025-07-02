@@ -13,9 +13,19 @@ return {
 	opts = {
 		window = {
 			position = "current",
+			mappings = {
+				["-"] = "navigate_up",
+			},
 		},
 		filesystem = {
 			hijack_netrw_behavior = "open_current",
+			filtered_items = {
+				visible = true,
+			},
+			follow_current_file = {
+
+				enabled = false,
+			},
 		},
 	},
 }
