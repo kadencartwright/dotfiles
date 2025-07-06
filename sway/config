@@ -1,5 +1,4 @@
 ### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 set $secondaryMod Mod4
@@ -40,6 +39,9 @@ seat seat0 xcursor_theme Adwaita 22
 
 output DP-1 scale 1.75 
 output DP-2 scale 1.75 
+output DP-7 scale 1.5 
+output DP-8 scale 1.5 
+output DP-10 scale 1.5 
 set $lock_cmd swaylock
 
 ### Idle configuration
@@ -64,8 +66,8 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+a exec chromium
     
-    bindsym $mod+Shift+a exec chrome-picker.sh
     bindgesture swipe:right workspace prev
     bindgesture swipe:left workspace next
 
@@ -159,7 +161,7 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+Shift+a focus parent
     # Lock the screen with windows+l key
     bindsym $secondaryMod+l exec $lock_cmd 
 # brightness
@@ -220,7 +222,7 @@ bar {
 }
 
 include /etc/sway/config.d/*
-input "11311:39:SNSL0027:00_2C2F:0027_Touchpad" {
+input "Touchpad" {
     natural_scroll enabled 
 }
 input * {

@@ -1,13 +1,16 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
-		"antosha417/nvim-lsp-file-operations", -- optional LSP integration
+		"luckasRanarison/neo-rename.nvim",
 	},
 	lazy = false, -- neo-tree will lazily load itself
+	config = function(_, opts)
+		require("neo-tree").setup(opts)
+		require("neo-rename").setup()
+	end,
 	---@module "neo-tree"
 	---@type neotree.Config?
 	opts = {
@@ -23,7 +26,6 @@ return {
 				visible = true,
 			},
 			follow_current_file = {
-
 				enabled = false,
 			},
 		},
