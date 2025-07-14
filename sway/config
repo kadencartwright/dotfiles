@@ -1,4 +1,5 @@
 ### Variables
+#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 set $secondaryMod Mod4
@@ -222,7 +223,7 @@ bar {
 }
 
 include /etc/sway/config.d/*
-input "Touchpad" {
+input "1267:12981:ELAN06D4:00_04F3:32B5_Touchpad" {
     natural_scroll enabled 
 }
 input * {
