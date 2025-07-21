@@ -3,3 +3,5 @@ packer_compiled.lua
 .DS_Store
 .zsh_history
 .zsh_sessions/
+
+./hyprland/monitors.conf
