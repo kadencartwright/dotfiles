@@ -21,7 +21,7 @@ return {
 			},
 		},
 		filesystem = {
-			hijack_netrw_behavior = "open_current",
+			hijack_netrw_behavior = "disabled",
 			filtered_items = {
 				visible = true,
 			},
