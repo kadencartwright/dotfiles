@@ -116,3 +116,10 @@ source "$HOME/.cargo/env"
 alias docker='$(which podman)'
 export EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
+alias gc="git commit"
+nv (){$(which nvim) $(pwd)}
+gaa (){
+  g=$(which git);
+  $g add $($g rev-parse --show-toplevel);
+}
+
