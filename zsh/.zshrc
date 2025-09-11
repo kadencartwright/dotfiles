@@ -123,3 +123,5 @@ gaa (){
   $g add $($g rev-parse --show-toplevel);
 }
 
+eval 
+DVC_AC_ZSH_SETUP_PATH=/home/k/.cache/devcycle/autocomplete/zsh_setup && test -f $DVC_AC_ZSH_SETUP_PATH && source $DVC_AC_ZSH_SETUP_PATH; # dvc autocomplete setup
