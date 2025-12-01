@@ -194,18 +194,9 @@ return {
 		"brenoprata10/nvim-highlight-colors",
 		event = "VeryLazy",
 		opts = {
-			render = "inline",
+			virtual_symbol = "⏺",
+			render = "background",
 			enable_tailwind = true,
-		},
-	},
-
-	-- Optional Tailwind class sorting
-	{
-		"laytan/tailwind-sorter.nvim",
-		build = "make install",
-		opts = {
-			on_save_enabled = true,
-			use_prettier = true,
 		},
 	},
 

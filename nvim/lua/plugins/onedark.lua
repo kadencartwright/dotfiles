@@ -1,1 +1,6 @@
-return { "navarasu/onedark.nvim", opts = { style = "darker" } }
+-- Lazy
+return {
+	"olimorris/onedarkpro.nvim",
+	priority = 1000, -- Ensure it loads first
+	opts = {},
+}

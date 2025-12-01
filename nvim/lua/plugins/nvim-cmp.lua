@@ -47,6 +47,11 @@ return { -- Autocompletion
 					luasnip.lsp_expand(args.body)
 				end,
 			},
+
+			formatting = {
+
+				format = require("nvim-highlight-colors").format,
+			},
 			completion = { completeopt = "menu,menuone,noinsert" },
 
 			-- For an understanding of why these mappings were
