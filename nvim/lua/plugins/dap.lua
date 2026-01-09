@@ -2,18 +2,12 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			-- Creates a beautiful debugger UI
 			"rcarriga/nvim-dap-ui",
-
-			-- Required dependency for nvim-dap-ui
 			"nvim-neotest/nvim-nio",
-
-			-- Installs the debug adapters for you
 			"williamboman/mason.nvim",
 			"jay-babu/mason-nvim-dap.nvim",
 		},
 		keys = {
-			-- Basic debugging keymaps, feel free to change to your liking!
 			{
 				"<F5>",
 				function()
@@ -50,93 +44,93 @@ return {
 				desc = "Debug: Toggle Breakpoint",
 			},
 			{
-				"<leader>B",
-				function()
-					require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-				end,
-				desc = "Debug: Set Breakpoint",
-			},
-			-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-			{
 				"<F7>",
 				function()
 					require("dapui").toggle()
 				end,
-				desc = "Debug: See last session result.",
+				desc = "Debug: Toggle UI",
 			},
 		},
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			require("mason-nvim-dap").setup({
-				-- Makes a best effort to setup the various debuggers with
-				-- reasonable debug configurations
-				automatic_installation = true,
-
-				-- You can provide additional configuration to the handlers,
-				-- see mason-nvim-dap README for more information
-				handlers = {},
-
-				-- You'll need to check that you have the required things installed
-				-- online, please don't ask me how to install them :)
-				ensure_installed = {
-					-- Update this to ensure that you have the debuggers for the langs you want
-					"delve",
-					"docker",
-					"netcoredbg",
-				},
-			})
-
-			-- Dap UI setup
-			-- For more information, see |:help nvim-dap-ui|
-			dapui.setup({
-				-- Set icons to characters that are more likely to work in every terminal.
-				--    Feel free to remove or use ones that you like more! :)
-				--    Don't feel like these are good choices.
-				icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-				controls = {
-					icons = {
-						pause = "⏸",
-						play = "▶",
-						step_into = "⏎",
-						step_over = "⏭",
-						step_out = "⏮",
-						step_back = "b",
-						run_last = "▶▶",
-						terminate = "⏹",
-						disconnect = "⏏",
+			-- pwa-node adapter (js-debug-adapter from mason)
+			dap.adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = {
+						vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+						"${port}",
 					},
 				},
-			})
+			}
 
-			-- Change breakpoint icons
-			-- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-			-- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-			-- local breakpoint_icons = vim.g.have_nerd_font
-			--     and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-			--   or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
-			-- for type, icon in pairs(breakpoint_icons) do
-			--   local tp = 'Dap' .. type
-			--   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
-			--   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
-			-- end
+			dap.configurations.typescript = {
+				{
+					name = "ts-node (prompt args)",
+					type = "pwa-node",
+					request = "launch",
+					cwd = "${workspaceFolder}",
+					runtimeExecutable = "node",
+					runtimeArgs = { "-r", "ts-node/register" },
+					program = "${workspaceFolder}/src/main.ts",
+					args = function()
+						local input = vim.fn.input("Args: ")
+						if input == "" then
+							return {}
+						end
+						return vim.split(input, " ")
+					end,
+					sourceMaps = true,
+					resolveSourceMapLocations = {
+						"${workspaceFolder}/**",
+						"!**/node_modules/**",
+					},
+					skipFiles = { "<node_internals>/**", "node_modules/**" },
+				},
+				{
+					type = "pwa-node",
+					request = "launch",
+					name = "Debug Jest Tests",
+					trace = true, -- include debugger info
+					runtimeExecutable = "node",
+					runtimeArgs = {
+						"./node_modules/jest/bin/jest.js",
+						"--runInBand",
+					},
+					rootPath = "${workspaceFolder}",
+					cwd = "${workspaceFolder}",
+					console = "integratedTerminal",
+					internalConsoleOptions = "neverOpen",
+				},
+				{
+					type = "pwa-node",
+					request = "launch",
+					name = "Debug Jest Tests (Current Buffer)",
+					trace = true, -- include debugger info
+					runtimeExecutable = "node",
+					runtimeArgs = {
+						"./node_modules/jest/bin/jest.js",
+						"--runInBand",
+						"${file}", -- This tells Jest to only run the active buffer
+					},
+					rootPath = "${workspaceFolder}",
+					cwd = "${workspaceFolder}",
+					console = "integratedTerminal",
+					internalConsoleOptions = "neverOpen",
+				},
+			}
+
+			dap.configurations.javascript = dap.configurations.typescript
+			dapui.setup()
 
 			dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 			dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 			dap.listeners.before.event_exited["dapui_config"] = dapui.close
 		end,
-		opts = {
-			adapters = {
-				cs = {
-					type = "coreclr",
-					name = "Launch - netcoredbg",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/debug", "file")
-					end,
-				},
-			},
-		},
 	},
 }
