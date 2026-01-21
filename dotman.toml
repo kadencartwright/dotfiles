@@ -55,3 +55,24 @@ host_path = ".config/electron-flags.conf"
 [[path_mappings]]
 repo_path= "kde/kdeglobals"
 host_path = ".config/kdeglobals"
+
+[[path_mappings]]
+repo_path= "opencode/agent"
+host_path = ".config/opencode/agent"
+
+[[path_mappings]]
+repo_path= "opencode/tool"
+host_path = ".config/opencode/tool"
+
+[[path_mappings]]
+repo_path= "opencode/package.json"
+host_path = ".config/opencode/package.json"
+
+[[path_mappings]]
+repo_path= "opencode/bun.lock"
+host_path = ".config/opencode/bun.lock"
+
+[[path_mappings]]
+repo_path= "opencode/opencode.jsonc"
+host_path = ".config/opencode/opencode.jsonc"
+
