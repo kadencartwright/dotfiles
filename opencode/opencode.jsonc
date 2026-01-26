@@ -51,7 +51,7 @@
           "pr-review": "deny"
         },
         "bash": {
-          "*": "ask",
+          "*": "allow",
           "git *": "allow",
           "git commit *": "deny",
           "git push *": "deny"
@@ -82,7 +82,7 @@
     }
   },
   "plugin": [
-    "opencode-antigravity-auth@beta"
+    "opencode-antigravity-auth@beta",
   ],
   "provider": {
     "google": {

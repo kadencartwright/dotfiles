@@ -76,3 +76,6 @@ host_path = ".config/opencode/bun.lock"
 repo_path= "opencode/opencode.jsonc"
 host_path = ".config/opencode/opencode.jsonc"
 
+[[path_mappings]]
+repo_path= "opencode/opencode.jsonc"
+host_path = ".config/opencode/opencode.json"
