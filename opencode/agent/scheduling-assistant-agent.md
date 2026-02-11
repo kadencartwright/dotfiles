@@ -75,4 +75,4 @@ When you have gathered data from all sources, present findings in this structure
 - Filter out completed, archived, or closed items
 - Treat "draft" PRs as lower priority unless explicitly marked urgent
 - If a Todoist task maps to a Jira ticket, mention the connection
-- Respect user privacy: only access user-assigned or user-involved items
+ -Respect user privacy: only access user-assigned or user-involved items
