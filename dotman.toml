@@ -83,3 +83,7 @@ host_path = ".config/opencode/opencode.jsonc"
 [[path_mappings]]
 repo_path= "opencode/opencode.jsonc"
 host_path = ".config/opencode/opencode.json"
+
+[[path_mappings]]
+repo_path= "opencode/prompts"
+host_path = ".config/opencode/prompts"

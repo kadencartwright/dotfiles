@@ -46,6 +46,7 @@
   },
   "agent": {
     "build": {
+      "mode": "primary",
       "permission": {
         "task": {
           "*": "allow",
@@ -58,6 +59,10 @@
           "git push *": "deny"
         }
       }
+    },
+    "plan": {
+      "mode": "primary",
+      "prompt": "{file:./prompts/plan.md}"
     },
     "atlassian-agent": {
       "tools": {
