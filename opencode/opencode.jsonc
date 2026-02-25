@@ -5,20 +5,6 @@
     "messages_half_page_down": "ctrl+d"
   },
   "mcp": {
-    "todoist": {
-      "type": "remote",
-      "url": "https://ai.todoist.net/mcp",
-      "enabled": true,
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "bun",
-        "x",
-        "@playwright/mcp@latest"
-      ],
-      "enabled": true
-    },
     "atlassian": {
       "type": "remote",
       "url": "https://mcp.atlassian.com/v1/mcp",
@@ -59,14 +45,10 @@
         "bash": {
           "*": "allow",
           "git *": "allow",
-          "git commit *": "deny",
+          "git commit *": "allow",
           "git push *": "deny"
         }
       }
-    },
-    "plan": {
-      "mode": "primary",
-      "prompt": "{file:./prompts/plan.md}"
     },
     "atlassian-agent": {
       "tools": {
