@@ -117,6 +117,7 @@ return {
 
 			local servers = {
 				gopls = {},
+				biome = {},
 				jsonls = {
 					settings = {
 						json = {
@@ -140,14 +141,15 @@ return {
 						tailwindCSS = {
 							validate = true,
 							classAttributes = { "class", "className" },
+							files = {
+								exclude = { "**/.git/**", "**/node_modules/**", "**/wt/**" },
+							},
 							experimental = { classRegex = {} },
 						},
 					},
 					filetypes = {
 						"html",
 						"css",
-						"javascript",
-						"typescript",
 						"javascriptreact",
 						"typescriptreact",
 						"svelte",
@@ -164,17 +166,14 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
 				automatic_installation = false,
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-
-						-- Use new API (no deprecated require)
-						vim.lsp.config(server_name, server)
-						vim.lsp.start({ name = server_name })
-					end,
-				},
+				automatic_enable = false,
 			})
+
+			for server_name, server in pairs(servers) do
+				server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+				vim.lsp.config(server_name, server)
+				vim.lsp.enable(server_name)
+			end
 		end,
 	},
 
