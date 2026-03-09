@@ -9,8 +9,7 @@
     "spacing": 16, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     //"wlr/workspaces": {
     //    "format": "{icon}",
@@ -18,17 +17,11 @@
     //    "on-scroll-up": "hyprctl dispatch workspace e+1",
     //    "on-scroll-down": "hyprctl dispatch workspace e-1"
     //},
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
-    },
-    "sway/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-scroll-up": "swaymsg workspace next",
-        "on-scroll-down": "swaymsg workspace prev"
+        "on-scroll-up": "niri msg action focus-workspace-up",
+        "on-scroll-down": "niri msg action focus-workspace-down"
     },
     "modules-center": [
         "clock"
