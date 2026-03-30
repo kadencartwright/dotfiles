@@ -7,16 +7,6 @@
       "url": "https://mcp.atlassian.com/v1/mcp",
       "enabled": true
     },
-    "codemogger": {
-      "type": "local",
-      "enabled": false,
-      "command": [
-        "npx",
-        "-y",
-        "codemogger",
-        "mcp"
-      ]
-    },
     "figma": {
       "type": "remote",
       "url": "https://mcp.figma.com/mcp",
@@ -40,8 +30,6 @@
     "todoist_*": false,
     "figma_*": false,
     "clickhouse": false,
-    "codemogger_codemogger_index": false,
-    "codemogger_codemogger_reindex": false,
   },
   "agent": {
     "build": {
@@ -55,7 +43,7 @@
           "*": "allow",
           "git *": "allow",
           "git commit *": "allow",
-          "git push *": "deny"
+          "git push *": "ask"
         }
       }
     },

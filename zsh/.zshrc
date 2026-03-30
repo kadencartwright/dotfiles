@@ -29,12 +29,6 @@ if test -f /opt/homebrew/bin/brew; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
-## fnm config
-which -s fnm &> /dev/null
-if [[ $? == 0 ]] ; then
-    export PATH="$HOME/.local/share/fnm:$PATH"
-    eval "$(fnm env --use-on-cd)"
-fi
 which -s starship &> /dev/null
 if [[ $? == 0 ]] ; then
     # init starship prompt
