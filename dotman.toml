@@ -9,6 +9,10 @@ repo_path= "alacritty/"
 host_path= ".config/alacritty/"
 
 [[path_mappings]]
+repo_path= "ghostty/"
+host_path= ".config/ghostty/"
+
+[[path_mappings]]
 repo_path= "kitty/"
 host_path = ".config/kitty/"
 
