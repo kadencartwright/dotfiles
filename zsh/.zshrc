@@ -109,7 +109,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 source "$HOME/.cargo/env"
-alias docker='$(which podman)'
 export EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
 alias gc="git commit"

@@ -6,8 +6,7 @@ alias zed="zeditor"
 . "$HOME/.cargo/env"
 eval "$(atuin init zsh --disable-up-arrow)"
 ## fnm config
-which -s fnm &> /dev/null
-if [[ $? == 0 ]] ; then
+if command -v fnm >/dev/null && [ -w "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}" ]; then
     export PATH="$HOME/.local/share/fnm:$PATH"
-    eval "$(fnm env --use-on-cd)"
+  eval "$(fnm env)"
 fi
