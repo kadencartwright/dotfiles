@@ -91,3 +91,6 @@ host_path = ".config/opencode/opencode.json"
 [[path_mappings]]
 repo_path= "opencode/prompts"
 host_path = ".config/opencode/prompts"
+[[path_mappings]]
+repo_path= "tmux"
+host_path = ".config/tmux"
