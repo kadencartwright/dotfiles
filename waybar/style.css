@@ -1,3 +1,4 @@
+@import "/usr/lib/hyprwhspr/config/waybar/hyprwhspr-style.css";
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Meslo LGS NF, DejaVu Sans Book, Roboto, Helvetica, Arial, sans-serif;

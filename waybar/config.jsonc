@@ -41,7 +41,8 @@
         "network",
         "battery",
         "battery#bat2",
-        "tray"
+        "tray",
+        "custom/hyprwhspr"
     ],
     "keyboard-state": {
         "numlock": true,
@@ -218,5 +219,8 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    },
+    "include": [
+        "/home/k/.config/waybar/hyprwhspr-module.jsonc"
+    ]
 }
