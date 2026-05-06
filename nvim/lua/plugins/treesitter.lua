@@ -1,5 +1,4 @@
 return {
-	{ "nvim-treesitter/playground" },
 	{ -- Highlight, edit, and navigate code
 
 		"nvim-treesitter/nvim-treesitter",
@@ -13,6 +12,8 @@ return {
 				"diff",
 				"html",
 				"lua",
+				"typescript",
+				"javascript",
 				"luadoc",
 				"markdown",
 				"markdown_inline",
