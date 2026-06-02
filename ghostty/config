@@ -4,3 +4,4 @@ auto-update-channel = stable
 font-family = "MesloLGS NF"
 theme=atom-one-dark.conf
 keybind = ctrl+enter=unbind
+confirm-close-surface = false
