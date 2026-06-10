@@ -4,20 +4,13 @@
   "margin-right": 8,
   "spacing": 16,
   "modules-left": [
-    "niri/workspaces",
-    "hyprland/workspaces"
+    "ext/workspaces"
   ],
-  "niri/workspaces": {
+  "ext/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
-    "on-scroll-up": "niri msg action focus-workspace-up",
-    "on-scroll-down": "niri msg action focus-workspace-down"
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"r+1\"})'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"r-1\"})'"
   },
   "modules-center": [
     "clock"
