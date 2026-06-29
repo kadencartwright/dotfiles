@@ -54,6 +54,7 @@ show = true
 left = ["hyprland-workspaces"]
 center = ["clock"]
 right = [
+  "custom-codexbar",
   "media",
   "systray",
   "network",
@@ -96,6 +97,37 @@ green = "#8ebd6b"
 blue = "#48b0bd"
 
 [modules]
+
+[[modules.custom]]
+id = "codexbar"
+command = '''
+codexbar \
+  --format '{session_pct}% - {session_reset}' \
+  --tooltip-format 'Session: {session_pct}% ({session_pace_pts})
+Weekly: {weekly_pct}% ({weekly_pace_pts})
+Session reset: {session_reset}
+Weekly reset: {weekly_reset}' |
+  jq -c '(.text,.tooltip) |= gsub("<[^>]*>"; "")'
+'''
+mode = "poll"
+interval-ms = 300000
+format = "{{ text }}"
+tooltip-format = "{{ tooltip }}"
+icon-name = "ld-code-symbolic"
+border-show = false
+border-color = "green"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = true
+label-color = "green"
+label-max-length = 0
+button-bg-color = "bg-surface-elevated"
+left-click = "/home/k/code/dotfiles/wayle/scripts/codexbar-panel"
+right-click = "xdg-open https://chatgpt.com/codex/settings/usage"
+middle-click = ""
+scroll-up = ""
+scroll-down = ""
 
 [[modules.custom]]
 id = "power-profile"
@@ -203,7 +235,7 @@ label-size = 1.0
 workspace-ignore = []
 active-indicator = "background"
 active-color = "blue"
-occupied-color = "fg-muted"
+occupied-color = "fg-subtle"
 empty-color = "fg-subtle"
 container-bg-color = "bg-surface-elevated"
 border-show = false
@@ -242,7 +274,7 @@ icon-show = false
 icon-color = "auto"
 icon-bg-color = "fg-muted"
 label-show = true
-label-color = "fg"
+label-color = "fg-default"
 label-max-length = 0
 button-bg-color = "bg-surface-elevated"
 left-click = "dropdown:calendar"

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+payload=$(codexbar)
+details=$(jq -r '.tooltip // .text // "No Codex usage details available."' <<< "$payload" |
+  sed 's/<[^>]*>//g')
+
+notify-send \
+  --app-name="Codex" \
+  --icon="ld-code-symbolic" \
+  --urgency=normal \
+  --expire-time=0 \
+  "Codex Usage" \
+  "$details" >/dev/null 2>&1 || true
