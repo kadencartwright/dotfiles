@@ -1,0 +1,6 @@
+[Settings]
+gtk-theme = adw-gtk3-dark
+icon-theme = breeze-dark
+cursor-theme = breeze_cursors
+cursor-size = 24
+color-scheme = prefer-dark

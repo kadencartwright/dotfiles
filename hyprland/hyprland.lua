@@ -8,8 +8,8 @@ local home = os.getenv("HOME") or ""
 -------------------
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaync")
+	hl.exec_cmd("wayle shell")
+	-- SwayNC disabled; Wayle owns notifications.
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hypridle")
@@ -31,10 +31,10 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("TERMINAL", "ghostty")
 hl.env("QT_QPA_PLATFORM", "wayland")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QPA_PLATFORMTHEME", "adwaita")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
+hl.env("QT_STYLE_OVERRIDE", "adwaita-dark")
 -- Do not force GTK_THEME globally: it overrides nwg-look/GTK settings and breaks GTK4 theming.
 -- hl.env("GTK_THEME", "AtomOneDarkTheme")
 hl.env("HYPRSHOT_DIR", home .. "/photos/screenshots")
@@ -58,15 +58,7 @@ hl.monitor({
 	scale = 1,
 })
 
--- Converted from source = ~/.config/hypr/monitors.conf
-hl.monitor({ output = "desc:Lenovo Group Limited 0x4146", mode = "3840x2400@60.0", position = "2876x1634", scale = 2.0 })
-hl.monitor({ output = "desc:ARZ ARZOPA-315", mode = "3840x2160@60.0", position = "0x0", scale = 1.5 })
-hl.monitor({
-	output = "desc:Samsung Electric Company Odyssey G61SD HNAX901424",
-	mode = "2560x1440@120.0",
-	position = "2560x194",
-	scale = 1.0,
-})
+require("monitors")
 
 ------------------------
 ---- CORE SETTINGS -----
@@ -242,9 +234,9 @@ end)
 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -4%"))
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +4%"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%-"), { repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 4%+"), { repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })

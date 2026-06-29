@@ -23,6 +23,9 @@ host_path = ".config/hypr/"
 repo_path= "waybar"
 host_path = ".config/waybar/"
 [[path_mappings]]
+repo_path= "wayle"
+host_path = ".config/wayle/"
+[[path_mappings]]
 repo_path= "sway"
 host_path = ".config/sway/"
 [[path_mappings]]
@@ -63,6 +66,9 @@ host_path = ".config/electron-flags.conf"
 [[path_mappings]]
 repo_path= "kde/kdeglobals"
 host_path = ".config/kdeglobals"
+[[path_mappings]]
+repo_path= "nwg-look"
+host_path = ".config/nwg-look/"
 
 [[path_mappings]]
 repo_path= "opencode/agent"
@@ -94,3 +100,6 @@ host_path = ".config/opencode/prompts"
 [[path_mappings]]
 repo_path= "tmux"
 host_path = ".config/tmux"
+[[path_mappings]]
+repo_path= "tm"
+host_path = ".config/tm"
