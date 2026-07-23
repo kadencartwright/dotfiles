@@ -98,13 +98,13 @@ hl.config({
 
 	decoration = {
 		rounding = 8,
-		active_opacity = 0.96,
-		inactive_opacity = 0.90,
+		active_opacity = 0.98,
+		inactive_opacity = 0.97,
 
 		blur = {
-			enabled = true,
-			size = 12,
-			passes = 2,
+			enabled = false,
+			size = 4,
+			passes = 1,
 			new_optimizations = true,
 		},
 
@@ -235,7 +235,11 @@ end)
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%-"), { repeating = true })
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 4%+"), { repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 4%+"),
+	{ repeating = true }
+)
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
