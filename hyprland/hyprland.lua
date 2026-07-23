@@ -29,7 +29,8 @@ hl.env("XCURSOR_SIZE", "24")
 -- hl.env("XDG_SESSION_TYPE", "wayland")
 -- hl.env("WLR_DRM_DEVICES", home .. "/.config/hypr/card")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("TERMINAL", "ghostty")
+--hl.env("TERMINAL", "ghostty")
+hl.env("TERMINAL", "alacritty")
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "adwaita")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
@@ -86,9 +87,9 @@ hl.config({
 	},
 
 	general = {
-		gaps_in = 4,
-		gaps_out = 4,
-		border_size = 2,
+		gaps_in = 0,
+		gaps_out = 0,
+		border_size = 1,
 		col = {
 			active_border = { colors = { "rgba(98c379ff)", "rgba(61afefff)" }, angle = 45 },
 			-- inactive_border = "rgba(595959aa)",
@@ -96,28 +97,8 @@ hl.config({
 		layout = "dwindle",
 	},
 
-	decoration = {
-		rounding = 8,
-		active_opacity = 0.98,
-		inactive_opacity = 0.97,
-
-		blur = {
-			enabled = false,
-			size = 4,
-			passes = 1,
-			new_optimizations = true,
-		},
-
-		shadow = {
-			enabled = true,
-			range = 4,
-			color = "rgba(1a1a1aee)",
-			render_power = 3,
-		},
-	},
-
 	animations = {
-		enabled = true,
+		enabled = false,
 	},
 
 	dwindle = {
@@ -171,7 +152,8 @@ local mainMod = "ALT"
 local secondaryMod = "SUPER"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty --working-directory=$HOME"))
+--hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty +new-window --working-directory=$HOME"))
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind("CONTROL + SHIFT + E", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("bemoji -t"))
