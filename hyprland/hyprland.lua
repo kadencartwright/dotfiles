@@ -98,7 +98,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = false,
+		enabled = true,
 	},
 
 	dwindle = {
@@ -129,10 +129,10 @@ hl.config({
 
 hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
 
-hl.animation({ leaf = "workspaces", enabled = false })
-hl.animation({ leaf = "windows", enabled = true, speed = 6, bezier = "myBezier", style = "popin 60%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 6, bezier = "default", style = "popin 90%" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1, bezier = "myBezier" })
+hl.animation({ leaf = "windows", enabled = true, speed = 1, bezier = "myBezier", style = "popin 60%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1, bezier = "default", style = "popin 90%" })
+hl.animation({ leaf = "fade", enabled = true, speed = 1, bezier = "default" })
 
 ------------------
 ---- GESTURES ----
