@@ -120,3 +120,6 @@ gaa (){
 
 eval 
 DVC_AC_ZSH_SETUP_PATH=/home/k/.cache/devcycle/autocomplete/zsh_setup && test -f $DVC_AC_ZSH_SETUP_PATH && source $DVC_AC_ZSH_SETUP_PATH; # dvc autocomplete setup
+
+# Pi
+export PATH="/home/k/.local/share/fnm/node-versions/v26.4.0/installation/bin:$PATH"
